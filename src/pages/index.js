@@ -6,14 +6,22 @@ import { IndexPageTemplate } from '../templates/index-page'
 
 const IndexPage = ({ data: { markdownRemark: { frontmatter: {
   image,
-  title,
-  heading
+  titleEn,
+  headingEn,
+  titlePl,
+  headingPl,
 } } } }) => (
     <Layout>
       <IndexPageTemplate
         image={image}
-        title={title}
-        heading={heading}
+        en={{
+          title: titleEn,
+          heading: headingEn
+        }}
+        pl={{
+          title: titlePl,
+          heading: headingPl
+        }}
       />
     </Layout>
 )
@@ -31,9 +39,11 @@ export const indexPageQuery = graphql`
   query indexPage {
     markdownRemark(frontmatter: {templateKey: {eq: "index-page"}}) {
       frontmatter {
-        title
+        titleEn
+        headingEn
+        titlePl
+        headingPl
         image
-        heading
         templateKey
       }
     }

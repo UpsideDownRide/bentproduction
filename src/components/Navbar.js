@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import logo from '../img/bent-logo.png'
+import { Context, languages } from './Context'
+import { GoGlobe } from 'react-icons/go';
 
 const Navbar = () => (
   <header>
@@ -9,7 +11,7 @@ const Navbar = () => (
         <div className="navbar-brand">
           <NavLink to="/">
             <figure className="image">
-              <img src={logo} alt="Bent Production Logo" style={{ maxHeight: "4rem", height: "4rem" }}/>
+              <img src={logo} alt="Bent Production Logo" style={{ maxHeight: "4rem", height: "4rem" }} />
             </figure>
           </NavLink>
           <Burger />
@@ -20,6 +22,7 @@ const Navbar = () => (
             <NavLink to="/portfolio">Portfolio</NavLink>
             <NavLink to="/services">Services</NavLink>
             <NavLink to="/contact">Contact</NavLink>
+            <Dropdown />
           </div>
         </div>
       </div>
@@ -32,11 +35,38 @@ const NavLink = (props) => (
 )
 
 const Burger = () => (
-  <a role="button" href="/" class="navbar-burger" aria-label="menu" aria-expanded="false">
+  <a role="button" href="/" className="navbar-burger" aria-label="menu" aria-expanded="false">
     <span aria-hidden="true"></span>
     <span aria-hidden="true"></span>
     <span aria-hidden="true"></span>
   </a>
+)
+
+const Dropdown = () => (
+  <Context.Consumer>
+    {({ language, setLanguage }) => (
+      <div className="dropdown is-hoverable navbar-item has-text-grey-light is-size-5">
+        <div className="dropdown-trigger">
+          <button className="button" aria-haspopup="true" aria-controls="dropdown-menu">
+            <span>{language}</span>
+            <span className="icon is-small">
+              <GoGlobe />
+            </span>
+          </button>
+        </div>
+        <div className="dropdown-menu" id="language-menu" role="menu">
+          <div className="dropdown-content">
+            <div className="dropdown-item has-text-grey-light is-size-6" onClick={() => setLanguage("en")}>
+              {languages.en.full}
+            </div>
+            <span className="dropdown-item has-text-grey-light is-size-6" onClick={() => setLanguage("pl")}>
+              {languages.pl.full}
+            </span>
+          </div>
+        </div>
+      </div>
+    )}
+  </Context.Consumer>
 )
 
 export default Navbar

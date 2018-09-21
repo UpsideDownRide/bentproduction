@@ -1,15 +1,20 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import PropTypes from 'prop-types'
 
 import Navbar from '../components/Navbar'
 import './all.sass'
 
-const TemplateWrapper = ({ children }) => (
+const Layout = ({ children }) => (
   <div>
-    <Helmet title="Home | Gatsby + Netlify CMS" />
+    <Helmet title="Bent Production" />
     <Navbar />
     <div>{children}</div>
   </div>
 )
 
-export default TemplateWrapper
+Layout.Proptypes = {
+  children: PropTypes.node.isRequired
+}
+
+export default Layout

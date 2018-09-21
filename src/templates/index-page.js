@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { GoChevronDown } from 'react-icons/go';
 
-export const LandingPageTemplate = ({
+export const IndexPageTemplate = ({
   image,
   title,
   heading,
@@ -21,7 +21,7 @@ export const LandingPageTemplate = ({
     </React.Fragment>
 )
 
-LandingPageTemplate.propTypes = {
+IndexPageTemplate.propTypes = {
   image: PropTypes.string,
   title: PropTypes.string,
   heading: PropTypes.string,

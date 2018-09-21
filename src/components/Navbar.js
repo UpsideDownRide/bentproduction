@@ -28,7 +28,7 @@ const Navbar = () => (
 )
 
 const NavLink = (props) => (
-  <Link className="navbar-item has-text-grey-light is-size-4" {...props} />
+  <Link className="navbar-item has-text-grey-light is-size-5" {...props} />
 )
 
 const Burger = () => (

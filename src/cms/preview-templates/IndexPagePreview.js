@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ProductPageTemplate } from '../../templates/index-page'
+import { IndexPageTemplate } from '../../templates/index-page'
 
 const IndexPagePreview = ({ entry, getAsset }) => (
-    <ProductPageTemplate
+    <IndexPageTemplate
       image={entry.getIn(['data', 'image'])}
       title={entry.getIn(['data', 'title'])}
       heading={entry.getIn(['data', 'heading'])}

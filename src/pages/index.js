@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import { LandingPageTemplate } from '../templates/index-page'
+import { IndexPageTemplate } from '../templates/index-page'
 
 const IndexPage = ({ data: { markdownRemark: { frontmatter: {
   image,
@@ -10,7 +10,7 @@ const IndexPage = ({ data: { markdownRemark: { frontmatter: {
   heading
 } } } }) => (
     <Layout>
-      <LandingPageTemplate
+      <IndexPageTemplate
         image={image}
         title={title}
         heading={heading}

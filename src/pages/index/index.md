@@ -1,7 +1,7 @@
 ---
 templateKey: 'index-page'
 path: '/'
-image: /img/background.png
+image: /img/background.jpg
 title: Bent Production
-heading: a video company in Warsaw
+heading: Video company based in Warsaw
 ---

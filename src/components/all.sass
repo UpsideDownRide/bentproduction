@@ -8,8 +8,8 @@ $bent-complementary: #1ba388
 $primary: $bent-orange
 $primary-invert: $bent-orange-invert
 
-$gradient-from: #1B0F06EC
-$gradient-to: #160900CC
+$gradient-from: rgba(#1B0F06, 0.95)
+$gradient-to: rgba(#160900, 0.7)
 
 $navbar-height: 5rem
 
@@ -33,13 +33,29 @@ html
 
 .navbar-item
   text-transform: uppercase
-  letter-spacing: 0.2em
+  letter-spacing: 0.12em
 
 .navbar-end .navbar-item
   padding: 0.5em 0.75em
 
 .navbar-item:hover
-    color: $bent-complementary !important
+  color: $bent-complementary !important
+
+.navbar-item.dropdown
+  .dropdown-menu
+    min-width: 4em
+    margin-top: -1.5em
+  .button, .dropdown-content
+    background-color: transparent
+    background-image: none
+    color: inherit
+    border: none
+    font-size: inherit
+  .dropdown-item
+    cursor: pointer
+    &:hover
+      color: #fff !important
+
 
 
 .landing

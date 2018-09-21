@@ -2,6 +2,8 @@
 templateKey: 'index-page'
 path: '/'
 image: /img/background.jpg
-title: Bent Production
-heading: Video company based in Warsaw
+titleEn: Bent Production
+headingEn: Video company based in Warsaw
+titlePl: Bent Production
+headingPl: Firma filmowa z Warszawy
 ---

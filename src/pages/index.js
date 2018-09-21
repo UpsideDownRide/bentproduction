@@ -1,19 +1,21 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+//import PropTypes from 'prop-types'
+//import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import { GoChevronDown } from 'react-icons/go';
 
 export default ({ data }) => (
   <Layout>
-      <div className="bg-image" />
-      <div className="first-page-wrapper">
-          <div className="starting-content">
-              <h1>Bent Production</h1>
-              <h2>video company based in Warsaw</h2>
-          </div>
-          <GoChevronDown className="down-arrow" onClick={() => alert('hey')}/>
+    <div className="landing background-image" />
+    <section className="landing hero is-fullheight">
+      <div className="landing hero-body">
+        <div className="container">
+          <h1 className="title has-text-light is-size-1">Bent Production</h1>
+          <h2 className="subtitle has-text-grey-light">video company based in Warsaw</h2>
+        </div>
       </div>
+      <GoChevronDown className="down-arrow" onClick={() => alert('hey')} />
+    </section>
   </Layout>
 )
 

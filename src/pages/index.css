@@ -2,6 +2,7 @@
     --main-color: #ff7e2a;
     --complementary-color: #1ba388;
 }
+
 .navbar {
     display: flex;
     justify-content: space-between;

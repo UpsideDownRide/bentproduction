@@ -29,8 +29,8 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
           - {label: Image, name: image, widget: image}
           - {label: "English Title", name: titleEn, widget: string}
-          - {label: "English Heading", name: headingEn, widget: string}
           - {label: "Polish Title", name: titlePl, widget: string}
+          - {label: "English Heading", name: headingEn, widget: string}
           - {label: "Polish Heading", name: headingPl, widget: string}
       - file: "src/pages/about/index.md"
         label: "About"

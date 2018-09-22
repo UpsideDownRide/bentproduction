@@ -14,7 +14,19 @@ $landing-gradient-to: rgba(#160900, 0.7)
 $qualities-gradient-from: rgba(#000D0B, 0.95)
 $qualities-gradient-to: rgba(#0D1D18, 0.92)
 
-$navbar-height: 5rem
+// TODO: This should be calculated and not hard-coded
+$navbar-height: 6rem
+$small-mobile: 450px
+
+@import "~bulma"
+
+@mixin side-margins($size)
+  margin-left: $size
+  margin-right: $size
+
+@mixin small-mobile
+  @media screen and (max-width: $small-mobile)
+    @content
 
 // Animations
 @keyframes bounce 
@@ -28,9 +40,25 @@ $navbar-height: 5rem
   background-color: transparent
   background-image: none
 
+// React player
+.video-player-wrapper
+  position: relative
+  padding-top: 56.25%
+  @include mobile
+    @include side-margins(-1.5rem)
+  @include tablet-only
+    @include side-margins(-0.5rem)
+    margin-bottom: -1rem
+
+.video-player
+  position: absolute
+  top: 0
+  left: 0
 
 html
   overflow: auto
+  @include small-mobile
+    font-size: 11px
 
 .has-icon-centered
   display: block
@@ -42,31 +70,33 @@ html
   &.container
     height: $navbar-height
 
+.navbar-brand
+  .navbar-item
+    margin-left: 1rem
+    margin-top: 1rem
+
+.navbar-end
+  .navbar-item
+    padding: 0.5em 0.75em
+
 .navbar-item
   text-transform: uppercase
   letter-spacing: 0.12em
-
-.navbar-end .navbar-item
-  padding: 0.5em 0.75em
-
-.navbar-item:hover
-  color: $bent-complementary !important
-
-.navbar-item.dropdown
-  .dropdown-menu
-    min-width: 4em
-    margin-top: -1.5em
-  .button, .dropdown-content
-    @include is-transparent
-    color: inherit
-    border: none
-    font-size: inherit
-  .dropdown-item
-    cursor: pointer
-    &:hover
-      color: #fff !important
-
-
+  &:hover
+    color: $bent-complementary !important
+  &.dropdown
+    .dropdown-menu
+      min-width: 4em
+      margin-top: -1.5em
+    .button, .dropdown-content
+      @include is-transparent
+      color: inherit
+      border: none
+      font-size: inherit
+    .dropdown-item
+      cursor: pointer
+      &:hover
+        color: #fff !important
 
 .landing
   &.background-image
@@ -79,13 +109,16 @@ html
     // TODO: Fill the background options for other browsers (doesn't work in edge)
     background: linear-gradient($landing-gradient-from, $landing-gradient-to), url('../img/background.jpg')
     background-size: cover
+    background-attachment: fixed
   &.hero.is-fullheight
     margin-top: -$navbar-height
     text-align: center
   .down-arrow
-    margin: 0 auto 1em
-    font-size: 3em
-    color: $bent-complementary
+    position: absolute
+    top: calc(100% - 3rem)
+    left: calc(50% - 0.75rem)
+    font-size: 1.5rem
+    color: #fff
     opacity: 0.8
     animation: bounce 1.5s ease-in-out
     animation-direction: alternate
@@ -97,7 +130,9 @@ html
     color: $bent-complementary
 
 .miniportfolio
+  padding-top: 0
   .centered-button
+    padding-top: 2rem
     display: flex
     .button
       color: #fff
@@ -111,38 +146,3 @@ html
 .qualities 
   .is-inverted
     @include is-transparent
-
-
-.content .taglist
-  list-style: none
-  margin-bottom: 0
-  margin-left: 0
-  margin-right: 1.5rem
-  margin-top: 1.5rem
-  display: flex
-  flex-wrap: wrap
-  justify-content: left
-  align-items: center
-  li
-    padding: 0 2rem 1rem 0
-    margin-bottom: 1.5rem
-    margin-top: 0
-
-// Helper Classes
-.full-width-image-container
-  width: 100vw
-  height: 400px
-  position: relative
-  left: 50%
-  right: 50%
-  margin: 5em -50vw
-  background-size: cover
-  background-position: bottom
-  display: flex
-  justify-content: center
-  align-items: center
-
-.margin-top-0
-  margin-top: 0 !important
-
-@import "~bulma"

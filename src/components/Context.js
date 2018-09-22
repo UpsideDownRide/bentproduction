@@ -1,20 +1,36 @@
 import React from 'react'
 
-export const languages = {
-  "en": {
-    abbrv: "en",
-    full: "English"
-  },
+const LanguageContext = React.createContext()
+export const LanguageConsumer = LanguageContext.Consumer
 
-  "pl": {
-    abbrv: "pl",
-    full: "Polish"
+export class LanguageProvider extends React.Component {
+  state = {
+    language: "en",
+    languages: {
+      "en": {
+        abbrv: "en",
+        full: "English"
+      },
+      "pl": {
+        abbrv: "pl",
+        full: "Polish"
+      }
+    }
+  }
+
+  updateLanguage = str => this.setState({ language: str })
+
+  render() {
+    return (
+      <LanguageContext.Provider value={{
+        language: this.state.language,
+        languages: this.state.languages,
+        updateLanguage: this.updateLanguage
+      }}>
+        {this.props.children}
+      </LanguageContext.Provider>
+    )
   }
 }
 
-export const Context = React.createContext({
-  language: "en",
-  setLanguage: () => { }
-})
 
-export default Context

@@ -4,25 +4,15 @@ import PropTypes from 'prop-types'
 
 import Navbar from '../components/Navbar'
 import './all.sass'
-import Context from './Context'
+import { LanguageProvider } from './Context'
 
-class Layout extends React.Component {
-
-  state = {
-    language: "en",
-    setLanguage: str => this.setState({ language: str })
-  }
-
-  render() {
-    return (
-      <Context.Provider value={this.state} >
-        <Helmet title="Bent Production" />
-        <Navbar />
-        <div>{this.props.children}</div>
-      </Context.Provider>
-    )
-  }
-}
+const Layout = ({ children }) => (
+    <LanguageProvider>
+      <Helmet title="Bent Production" />
+      <Navbar />
+      <div>{children}</div>
+    </LanguageProvider>
+)
 
 Layout.Proptypes = {
   children: PropTypes.node.isRequired

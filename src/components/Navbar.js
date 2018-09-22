@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import logo from '../img/bent-logo.png'
-import { Context, languages } from './Context'
+import { LanguageConsumer } from './Context'
 import { GoGlobe } from 'react-icons/go';
 
 const Navbar = () => (
@@ -43,8 +43,8 @@ const Burger = () => (
 )
 
 const Dropdown = () => (
-  <Context.Consumer>
-    {({ language, setLanguage }) => (
+  <LanguageConsumer>
+    {({ language, updateLanguage, languages }) => (
       <div className="dropdown is-hoverable navbar-item has-text-grey-light is-size-5">
         <div className="dropdown-trigger">
           <button className="button" aria-haspopup="true" aria-controls="dropdown-menu">
@@ -56,17 +56,17 @@ const Dropdown = () => (
         </div>
         <div className="dropdown-menu" id="language-menu" role="menu">
           <div className="dropdown-content">
-            <div className="dropdown-item has-text-grey-light is-size-6" onClick={() => setLanguage("en")}>
+            <div className="dropdown-item has-text-grey-light is-size-6" onClick={() => updateLanguage("en")}>
               {languages.en.full}
             </div>
-            <span className="dropdown-item has-text-grey-light is-size-6" onClick={() => setLanguage("pl")}>
+            <span className="dropdown-item has-text-grey-light is-size-6" onClick={() => updateLanguage("pl")}>
               {languages.pl.full}
             </span>
           </div>
         </div>
       </div>
     )}
-  </Context.Consumer>
+  </LanguageConsumer>
 )
 
 export default Navbar

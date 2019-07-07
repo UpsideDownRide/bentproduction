@@ -10,6 +10,7 @@ const IndexPage = ({ data: { markdownRemark: { frontmatter: {
   headingEn,
   titlePl,
   headingPl,
+  logo1
 } } } }) => (
     <Layout>
       <IndexPageTemplate
@@ -22,6 +23,7 @@ const IndexPage = ({ data: { markdownRemark: { frontmatter: {
           title: titlePl,
           heading: headingPl
         }}
+        logo1={logo1}
       />
     </Layout>
 )

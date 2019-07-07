@@ -38,6 +38,7 @@ const INFO_CARDS = [
 
 export const IndexPageTemplate = ({
   image,
+  languages,
   ...props
 }) => (
     <LanguageConsumer>
@@ -56,7 +57,7 @@ export const IndexPageTemplate = ({
               <GoChevronDown className="down-arrow" onClick={() => scrollToPage(1)} />
             </section>
             <Section className="engagement">
-              <h1 className="lead is-size-1-desktop is-size-2-tablet is-size-4-mobile has-text-centered">We are a video production company that helps businesses achieve the best video results.</h1>
+              <h1 className="lead is-size-2-desktop is-size-3-tablet is-size-4-mobile has-text-centered">We are a video production company that helps businesses achieve the best video results.</h1>
             </Section>
             <Section className="miniportfolio">
               <h1 className="title is-size-2">Our recent work</h1>
@@ -88,6 +89,7 @@ export const IndexPageTemplate = ({
             </div>
             <Section className="clients">
               <h1 className="title is-size-2 has-text-centered">We worked with</h1>
+              <img src={props.logo1} />
             </Section>
           </React.Fragment>
         )
